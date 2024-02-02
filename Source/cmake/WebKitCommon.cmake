@@ -31,7 +31,7 @@ if (NOT HAS_RUN_WEBKIT_COMMON)
         set(ENABLE_WEBKIT OFF)
     endif ()
 
-    if (NOT DEFINED ENABLE_TOOLS AND EXISTS "${CMAKE_SOURCE_DIR}/Tools")
+    if (NOT DEFINED ENABLE_TOOLS AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Tools")
         set(ENABLE_TOOLS ON)
     endif ()
 
@@ -252,10 +252,10 @@ if (NOT HAS_RUN_WEBKIT_COMMON)
             BYPRODUCTS DeveloperTools/compile_commands.json
             DEPENDS "${CMAKE_BINARY_DIR}/compile_commands.json"
             COMMAND "${PYTHON_EXECUTABLE}"
-                    "${CMAKE_SOURCE_DIR}/Tools/Scripts/rewrite-compile-commands"
+                    "${CMAKE_CURRENT_SOURCE_DIR}/Tools/Scripts/rewrite-compile-commands"
                     "${CMAKE_BINARY_DIR}/compile_commands.json"
                     "${CMAKE_BINARY_DIR}/DeveloperTools/compile_commands.json"
-                    "${CMAKE_SOURCE_DIR}"
+                    "${CMAKE_CURRENT_SOURCE_DIR}"
                     "${CMAKE_BINARY_DIR}"
         )
     endif ()
